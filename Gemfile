@@ -49,3 +49,7 @@ group :production do
   gem "rails_12factor"
 end
 
+gem "devise"
+
+gem 'zurb-foundation'
+gem 'foundation_rails_helper'
