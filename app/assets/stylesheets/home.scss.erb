@@ -1,0 +1,48 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.top-bar {
+  border-bottom: 1px solid #EAEAEA;
+  height: 46px;
+  & li {
+    height: 45px;
+  }
+  .top-bar-section ul li {
+    background-color: #BABABA;
+  }
+}
+.background-holder {
+  height: 840px;
+  background: url(<%= asset_path "background.jpg" %>) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  position: relative;
+  z-index:0;
+
+  & h1 {
+    color: #FDFDFD;
+    display: inline-block;
+    margin-top: 320px;
+    margin-left: 120px;
+  }
+  & h3 {
+    color: #FAFAFA;
+    margin-left: 120px;
+    font-size: 20px;
+    width: 50%;
+  }
+
+}
+.background-holder:after{
+    position:absolute;
+    content:"";
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background:rgba(255,255,255,0.3);
+    z-index: -1;
+}
