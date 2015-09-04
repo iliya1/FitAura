@@ -1,9 +1,9 @@
-class User < ActiveRecord::Base
+class Studio < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates :name, :zipcode, presence: true
 
+  validates :name, :zipcode, presence: true
 end
