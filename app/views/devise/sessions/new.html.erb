@@ -1,5 +1,5 @@
 <%= render layout:"shared/panel" do %>
-  <h2>Log in</h2>
+  <h2><%= request.fullpath.split("/")[1].capitalize %> login</h2>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <%= f.email_field :email, autofocus: true %>

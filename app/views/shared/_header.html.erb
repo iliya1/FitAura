@@ -10,7 +10,29 @@
   <section class="top-bar-section">
     <!-- Right Nav Section -->
     <ul class="right">
-      <%= render "shared/login" %>
+    <% if user_signed_in? %>
+      <li>
+        <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+      </li>
+    <% elsif studio_signed_in? %>
+      <li>
+        <%= link_to('Logout', destroy_studio_session_path, :method => :delete) %>        
+      </li>
+    <% elsif trainer_signed_in? %>
+      <li>
+        <%= link_to('Logout', destroy_trainer_session_path, :method => :delete) %>        
+      </li>
+
+    <% else %>
+      <li class="has-dropdown">
+        <a href="#">Login</a>
+        <ul class="dropdown">
+          <li> <%= link_to('User Login', new_user_session_path)  %>  </li>
+          <li> <%= link_to('Studio Login', new_studio_session_path)  %>  </li>
+          <li> <%= link_to('Trainer Login', new_trainer_session_path)  %>  </li>
+        </ul>
+      </li>
+    <% end %>
     </ul>
   </section>
 </nav>
