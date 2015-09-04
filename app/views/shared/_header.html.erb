@@ -9,30 +9,33 @@
 
   <section class="top-bar-section">
     <!-- Right Nav Section -->
-    <ul class="right">
     <% if user_signed_in? %>
-      <li>
-        <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
-      </li>
+      <ul class="right">
+        <li> <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        </li>
+      </ul>
     <% elsif studio_signed_in? %>
-      <li>
-        <%= link_to('Logout', destroy_studio_session_path, :method => :delete) %>        
-      </li>
+      <ul class="right">
+        <li> <%= link_to "Studio Profile", "#" %></li>
+        <li><%= link_to('Logout', destroy_studio_session_path, :method => :delete) %>        </li>
+      </ul>
+      <ul class="left">
+        <li>  <%= link_to "Schedule", "#" %></li>
+      </ul>
     <% elsif trainer_signed_in? %>
-      <li>
-        <%= link_to('Logout', destroy_trainer_session_path, :method => :delete) %>        
-      </li>
-
+      <ul class="right">
+        <li> <%= link_to('Logout', destroy_trainer_session_path, :method => :delete) %>        </li>
+      </ul>
     <% else %>
-      <li class="has-dropdown">
-        <a href="#">Login</a>
-        <ul class="dropdown">
-          <li> <%= link_to('User Login', new_user_session_path)  %>  </li>
-          <li> <%= link_to('Studio Login', new_studio_session_path)  %>  </li>
-          <li> <%= link_to('Trainer Login', new_trainer_session_path)  %>  </li>
-        </ul>
-      </li>
+      <ul class="right">
+        <li class="has-dropdown">
+          <a href="#">Login</a>
+          <ul class="dropdown">
+            <li> <%= link_to('User Login', new_user_session_path)  %>  </li>
+            <li> <%= link_to('Studio Login', new_studio_session_path)  %>  </li>
+            <li> <%= link_to('Trainer Login', new_trainer_session_path)  %>  </li>
+          </ul>
+        </li>
+      </ul>
     <% end %>
-    </ul>
   </section>
 </nav>
