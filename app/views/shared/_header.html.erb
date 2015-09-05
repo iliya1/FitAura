@@ -15,11 +15,11 @@
       </ul>
     <% elsif studio_signed_in? %>
       <ul class="right">
-        <li> <%= link_to "Studio Profile", "#" %></li>
+        <li> <%= link_to "Studio Profile", profile_studio_path(current_studio) %></li>
         <li><%= link_to('Logout', destroy_studio_session_path, :method => :delete) %>        </li>
       </ul>
       <ul class="left">
-        <li>  <%= link_to "Schedule", "#" %></li>
+        <li>  <%= link_to "Schedule", schedule_studio_path(current_studio)  %></li>
       </ul>
     <% elsif trainer_signed_in? %>
       <ul class="right">

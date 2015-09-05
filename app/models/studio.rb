@@ -6,4 +6,8 @@ class Studio < ActiveRecord::Base
 
 
   validates :name, :zipcode, presence: true
+
+  def to_param
+    "#{id}-#{name.parameterize}"
+  end
 end
