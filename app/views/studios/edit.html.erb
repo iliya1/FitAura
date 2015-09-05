@@ -1,0 +1,12 @@
+<%= render layout:"shared/panel" do %>
+  <h1><%= @studio.name %> </h1>
+  <%= form_for @studio do |f| %>
+    <%= f.text_field :address1 %>
+    <%= f.text_field :address2 %>
+    <%= f.text_field :phone %>
+
+    <%= f.submit %>
+
+  <% end %>
+    <%= link_to "Back", studio_path(current_studio) %>
+<% end %>

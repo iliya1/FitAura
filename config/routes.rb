@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   resources :studios do
     member do
       get "dashboard"
-      get "profile"
       get "schedule"
     end
   end

@@ -1,2 +1,10 @@
-<h1>Studios#show</h1>
-<p>Find me in app/views/studios/show.html.erb</p>
+<%= render layout:"shared/page" do %>
+  <h1><%= @studio.name %> </h1>
+  <%= @studio.address1 %><br />
+  <%= @studio.address2 %><br />
+  <%= @studio.phone %><br />
+
+  <% if @studio == current_studio %>
+    <%= link_to "Edit Profile", edit_studio_path(current_studio) %>
+  <% end %>
+<% end %>
