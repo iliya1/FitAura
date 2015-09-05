@@ -29,7 +29,7 @@ class StudiosController < ApplicationController
   protected
 
   def studio_attributes
-    params.require(:studio).permit( :address1, :address2, :phone )
+    params.require(:studio).permit( :address1, :address2, :phone, :logo )
   end
 
 end

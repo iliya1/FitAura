@@ -1,9 +1,11 @@
 <%= render layout:"shared/panel" do %>
   <h1><%= @studio.name %> </h1>
-  <%= form_for @studio do |f| %>
+  <%= form_for @studio, html: { multipart: true } do |f| %>
     <%= f.text_field :address1 %>
     <%= f.text_field :address2 %>
     <%= f.text_field :phone %>
+
+      <%= form.file_field :logo %>
 
     <%= f.submit %>
 
