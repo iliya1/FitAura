@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150905154451) do
+ActiveRecord::Schema.define(version: 20150905160209) do
 
   create_table "studios", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -31,6 +31,10 @@ ActiveRecord::Schema.define(version: 20150905154451) do
     t.string   "phone"
     t.string   "address1"
     t.string   "address2"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
   end
 
   add_index "studios", ["email"], name: "index_studios_on_email", unique: true
