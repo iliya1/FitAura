@@ -1,6 +1,6 @@
 <%= render layout:"shared/page" do %>
   <h1><%= @studio.name %> </h1>
-  <%= image_tag @studio.logo.url %>
+  <%= image_tag @studio.logo.url(:medium) %><br />
   <%= @studio.address1 %><br />
   <%= @studio.address2 %><br />
   <%= @studio.phone %><br />
