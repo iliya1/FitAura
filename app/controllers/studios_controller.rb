@@ -1,5 +1,5 @@
 class StudiosController < ApplicationController
-  before_action :authenticate_studio!, :only => [:edit, :update, :schedule, :dashboard]
+  before_action :authenticate_studio!, :only => [:edit, :update, :dashboard]
   def index
   end
 
@@ -21,9 +21,6 @@ class StudiosController < ApplicationController
   end
 
   def dashboard
-  end
-
-  def schedule
   end
 
   protected

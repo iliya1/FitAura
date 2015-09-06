@@ -15,6 +15,8 @@ class Studio < ActiveRecord::Base
 
   validates_attachment_content_type :logo, content_type: /\Aimage\/.*\Z/
 
+  has_many :studio_classes
+
   def to_param
     "#{id}-#{name.parameterize}"
   end

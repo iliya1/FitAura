@@ -1,1 +1,5 @@
-<H1>Welcome <%= current_studio.name %></H1>
+<%= render layout:"shared/page" do %>
+  <h1>Dashboard</h1>
+  <H2>Welcome <%= current_studio.name %></H2>
+<% end %>
+

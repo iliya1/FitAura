@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :studios
   devise_for :trainers
   devise_for :users
@@ -6,8 +7,8 @@ Rails.application.routes.draw do
   resources :studios do
     member do
       get "dashboard"
-      get "schedule"
     end
+    resources :classes
   end
 
   devise_scope :studio do

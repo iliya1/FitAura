@@ -1,0 +1,10 @@
+<%= render layout:"shared/panel" do %>
+  <H1>Current Classes</H1>
+  <ul class="no-bullet">
+    <%= render @studio_classes %>
+  </ul>
+
+  <% if current_studio == @studio %>
+    <%= link_to "Add Class", new_studio_class_path, class:"tiny radius button" %>
+  <% end %>
+<% end %>
