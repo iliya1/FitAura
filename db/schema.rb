@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150906032642) do
+ActiveRecord::Schema.define(version: 20150907234057) do
 
   create_table "studio_classes", force: :cascade do |t|
     t.integer  "studio_id"
@@ -48,6 +48,15 @@ ActiveRecord::Schema.define(version: 20150906032642) do
 
   add_index "studios", ["email"], name: "index_studios_on_email", unique: true
   add_index "studios", ["reset_password_token"], name: "index_studios_on_reset_password_token", unique: true
+
+  create_table "timeslots", force: :cascade do |t|
+    t.integer  "studio_class_id"
+    t.text     "days",            default: "--- []\n"
+    t.time     "start_time"
+    t.integer  "duration"
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+  end
 
   create_table "trainers", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
