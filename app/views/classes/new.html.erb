@@ -1,0 +1,10 @@
+<%= render layout:"shared/panel" do %>
+  <h1>Add a class</h1>
+  <%= form_for @studio_class do |f| %>
+    <%= f.text_field :name %>
+    <%= f.text_area :description %>
+    <%= f.text_field :points, placeholder: "$1 = 10 points" %>
+    <%= f.submit %>
+  <% end %>
+
+<% end %>

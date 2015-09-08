@@ -1,5 +1,6 @@
 class StudiosController < ApplicationController
   before_action :authenticate_studio!, :only => [:edit, :update, :dashboard]
+
   def index
   end
 

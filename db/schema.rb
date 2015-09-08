@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150907234057) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "studio_classes", force: :cascade do |t|
     t.integer  "studio_id"
     t.string   "name"
@@ -46,16 +49,16 @@ ActiveRecord::Schema.define(version: 20150907234057) do
     t.datetime "logo_updated_at"
   end
 
-  add_index "studios", ["email"], name: "index_studios_on_email", unique: true
-  add_index "studios", ["reset_password_token"], name: "index_studios_on_reset_password_token", unique: true
+  add_index "studios", ["email"], name: "index_studios_on_email", unique: true, using: :btree
+  add_index "studios", ["reset_password_token"], name: "index_studios_on_reset_password_token", unique: true, using: :btree
 
   create_table "timeslots", force: :cascade do |t|
     t.integer  "studio_class_id"
-    t.text     "days",            default: "--- []\n"
+    t.text     "days",            default: [],              array: true
     t.time     "start_time"
     t.integer  "duration"
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "trainers", force: :cascade do |t|
@@ -75,8 +78,8 @@ ActiveRecord::Schema.define(version: 20150907234057) do
     t.string   "zipcode"
   end
 
-  add_index "trainers", ["email"], name: "index_trainers_on_email", unique: true
-  add_index "trainers", ["reset_password_token"], name: "index_trainers_on_reset_password_token", unique: true
+  add_index "trainers", ["email"], name: "index_trainers_on_email", unique: true, using: :btree
+  add_index "trainers", ["reset_password_token"], name: "index_trainers_on_reset_password_token", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -95,7 +98,7 @@ ActiveRecord::Schema.define(version: 20150907234057) do
     t.string   "zipcode"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
