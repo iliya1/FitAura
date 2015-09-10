@@ -8,9 +8,10 @@ Rails.application.routes.draw do
     member do
       get "dashboard"
     end
-    resources :classes
+    resources :classes do
+      resources :timeslots
+    end
   end
-
 
   authenticated :studio do
     root 'studios#dashboard', as: :studio_root

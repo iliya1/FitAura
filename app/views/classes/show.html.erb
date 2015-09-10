@@ -1,6 +1,26 @@
 <%= render layout:"shared/page" do %>
-  <h1> <%= @studio_class.name %></h1>
-  <p> <%= @studio_class.description %></p>
-  Cost: <%= @studio_class.points %> points
+  <div>
+    <h1> <%= @studio_class.name %></h1>
+    <p> <%= @studio_class.description %></p>
+    Cost: <%= @studio_class.points %> points
+  </div>
+
+  
+  <% if current_studio == @studio %>
+    <hr >
+
+    <%= link_to "Edit Class",  edit_studio_class_path(@studio, @studio_class), class:"tiny radius button" %>
+
+    <h2>Edit Schedule</h2>
+    <% @studio_class.timeslots.each do |ts| %>
+      <ul class="no-bullet">
+        <li><strong>Start: <%= ts.start_time.to_s(:time) %></strong></li>
+        <li>Duration: <%= ts.duration %> minutes</li>
+        <li>Days of the week: <%= ts.enum_days %></li>
+      </ul>
+      <br />
+    <% end %>
+    <%= link_to "Add Time",  new_studio_class_timeslot_path(@studio, @studio_class), class:"tiny radius button" %>
+  <% end %>
 
 <% end %>
