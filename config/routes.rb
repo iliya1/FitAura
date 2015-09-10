@@ -11,11 +11,12 @@ Rails.application.routes.draw do
     resources :classes
   end
 
-  devise_scope :studio do
+
+  authenticated :studio do
     root 'studios#dashboard', as: :studio_root
   end
 
-
   root 'home#index'
+
 
 end
