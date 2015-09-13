@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   end
 
   authenticated :user do
+    get "/account", to: "users#account", as: :user_account
+    post "/book/:class_id", to: "users#book", as: :book_class
     root 'users#home', as: :user_root
   end
 

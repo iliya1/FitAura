@@ -22,7 +22,7 @@
             <li><%= link_to "Edit", edit_studio_class_timeslot_path(@studio, @studio_class, ts) %>
         <% end %>
         <% if user_signed_in? %>
-          <%= link_to "Book this class", "#" %>
+          <%= link_to "Book this class", book_class_path(@studio_class), method: :post %>
         <% end %>
       </ul>
       <br />

@@ -11,6 +11,8 @@
     <!-- Right Nav Section -->
     <% if user_signed_in? %>
       <ul class="right">
+        <li> <%= link_to "#{current_user.points} points", user_account_path %> </li>
+
         <li> <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        </li>
       </ul>
     <% elsif studio_signed_in? %>
