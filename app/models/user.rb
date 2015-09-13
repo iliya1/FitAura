@@ -6,4 +6,7 @@ class User < ActiveRecord::Base
 
   validates :name, :zipcode, presence: true
 
+  has_many :bookings
+  has_many :timeslots, :through => :bookings
+
 end

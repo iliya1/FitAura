@@ -16,11 +16,11 @@ class ChargesController < ApplicationController
     charge = Stripe::Charge.create(
       :customer    => customer.id,
       :amount      => @amount,
-      :description => '5,000 points',
+      :description => '500 points',
       :currency    => 'usd'
     )
 
-    current_user.points = current_user.points + 5000
+    current_user.points = current_user.points + 500
     current_user.save!
 
     redirect_to user_account_path

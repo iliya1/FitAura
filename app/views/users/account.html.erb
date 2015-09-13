@@ -5,14 +5,14 @@
   <%= form_tag charges_path do %>
     <article>
       <label class="amount">
-        <span>Buy 5,000 points: $50</span>
+        <span>Buy 500 points: $50</span>
       </label>
     </article>
 
     <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
             data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
             data-email=<%= current_user.email %>
-            data-description="5,000 points"
+            data-description="500 points"
             data-amount="5000"
             data-locale="auto"></script>
   <% end %>
