@@ -1,0 +1,5 @@
+<%= render layout:"shared/panel" do %>
+  <h1>Welcome, <%= current_user.name %></h1>
+  <h3>Studios near you</h3>
+  <%= render @studios %>
+<% end %>

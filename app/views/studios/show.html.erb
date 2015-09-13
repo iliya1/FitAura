@@ -5,7 +5,10 @@
   <%= @studio.address2 %><br />
   <%= @studio.phone %><br />
 
+  <%= link_to "View Classes", studio_classes_path(@studio) %>
+
   <% if @studio == current_studio %>
     <%= link_to "Edit Profile", edit_studio_path(current_studio) %>
   <% end %>
+
 <% end %>

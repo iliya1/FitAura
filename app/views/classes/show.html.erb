@@ -6,9 +6,10 @@
   </div>
 
   
-  <% if current_studio == @studio %>
     <br />
-    <%= link_to "Edit Class",  edit_studio_class_path(@studio, @studio_class), class:"tiny radius button" %>
+    <% if current_studio == @studio %>
+      <%= link_to "Edit Class",  edit_studio_class_path(@studio, @studio_class), class:"tiny radius button" %>
+    <% end %>
     <hr >
 
     <h3>Schedule</h3>
@@ -17,11 +18,17 @@
         <li><strong>Start: <%= ts.start_time.to_s(:time) %></strong></li>
         <li>Duration: <%= ts.duration %> minutes</li>
         <li>Days of the week: <%= ts.enum_days %></li>
-        <li><%= link_to "Edit", edit_studio_class_timeslot_path(@studio, @studio_class, ts) %>
+        <% if current_studio == @studio %>
+            <li><%= link_to "Edit", edit_studio_class_timeslot_path(@studio, @studio_class, ts) %>
+        <% end %>
+        <% if user_signed_in? %>
+          <%= link_to "Book this class", "#" %>
+        <% end %>
       </ul>
       <br />
     <% end %>
-    <%= link_to "Add Time",  new_studio_class_timeslot_path(@studio, @studio_class), class:"tiny radius button" %>
-  <% end %>
+    <% if current_studio == @studio %>
+      <%= link_to "Add Time",  new_studio_class_timeslot_path(@studio, @studio_class), class:"tiny radius button" %>
+    <% end %>
 
 <% end %>

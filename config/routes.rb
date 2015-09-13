@@ -17,6 +17,10 @@ Rails.application.routes.draw do
     root 'studios#dashboard', as: :studio_root
   end
 
+  authenticated :user do
+    root 'users#home', as: :user_root
+  end
+
   root 'home#index'
 
 

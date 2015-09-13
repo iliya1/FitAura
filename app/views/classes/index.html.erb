@@ -1,5 +1,6 @@
 <%= render layout:"shared/panel" do %>
-  <H1>Current Classes</H1>
+  <h1><%= @studio.name %></h1>
+  <H3>Current Classes</H3>
   <ul class="no-bullet">
     <%= render @studio_classes %>
   </ul>
