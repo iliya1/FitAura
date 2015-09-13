@@ -55,3 +55,6 @@ gem 'foundation_rails_helper'
 
 gem "paperclip"
 gem 'aws-sdk', '~> 1.6'
+
+gem "stripe"
+

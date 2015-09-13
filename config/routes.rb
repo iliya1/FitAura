@@ -21,6 +21,8 @@ Rails.application.routes.draw do
     root 'users#home', as: :user_root
   end
 
+  resources :charges
+
   root 'home#index'
 
 
