@@ -1,18 +1,16 @@
 Rails.application.routes.draw do
 
-  get 'trainers/dashboard'
-
   devise_for :studios
   devise_for :trainers
   devise_for :users
 
   resources :studios do
-    member do
-      get "dashboard"
-    end
     resources :classes do
       resources :timeslots
     end
+  end
+
+  resources :trainers do
   end
 
   authenticated :studio do
