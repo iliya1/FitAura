@@ -1,13 +1,16 @@
 <%= render layout:"shared/page" do %>
-  <h1><%= @studio.name %> </h1>
+  <h1><%= @studio.studio_name %> </h1>
   <%= image_tag @studio.logo.url(:medium) %><br />
   <%= @studio.address1 %><br />
   <%= @studio.address2 %><br />
   <%= @studio.phone %><br />
 
+    <hr>
+
   <%= link_to "View Classes", studio_classes_path(@studio) %>
 
   <% if @studio == current_studio %>
+    &nbsp;&nbsp;
     <%= link_to "Edit Profile", edit_studio_path(current_studio) %>
   <% end %>
 

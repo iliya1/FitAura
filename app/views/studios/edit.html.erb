@@ -1,5 +1,5 @@
 <%= render layout:"shared/panel" do %>
-  <h1><%= @studio.name %> </h1>
+  <h1><%= @studio.studio_name %> </h1>
   <%= form_for @studio, html: { multipart: true } do |f| %>
     <%= image_tag @studio.logo.url(:medium) %><br /><br />
     <%= f.text_field :address1 %>

@@ -5,7 +5,7 @@ class Studio < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
 
-  validates :name, :zipcode, presence: true
+  validates :name, :studio_name, :zipcode, presence: true
 
   has_attached_file :logo,
     :storage => :s3,
@@ -18,6 +18,6 @@ class Studio < ActiveRecord::Base
   has_many :studio_classes
 
   def to_param
-    "#{id}-#{name.parameterize}"
+    "#{id}-#{studio_name.parameterize}"
   end
 end
