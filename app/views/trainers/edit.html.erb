@@ -1,0 +1,13 @@
+<%= render layout:"shared/panel" do %>
+  <h1><%= @trainer.name %> </h1>
+  <%= form_for @trainer, html: { multipart: true } do |f| %>
+    <%= image_tag @trainer.photo.url(:medium) %><br /><br />
+
+    <%= f.file_field :photo %>
+
+    <br />
+    <%= f.submit %>
+
+  <% end %>
+    <%= link_to "Back", trainer_path(current_trainer) %>
+<% end %>

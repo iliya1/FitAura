@@ -1,4 +1,12 @@
 <%= render layout:"shared/page" do %>
   <h1><%= @trainer.name %> </h1>
+  <%= image_tag @trainer.photo.url(:medium) %><br />
 
+    <hr>
+
+
+    <% if @trainer == current_trainer %>
+      &nbsp;&nbsp;
+      <%= link_to "Edit Profile", edit_trainer_path(current_trainer) %>
+    <% end %>
 <% end %>
