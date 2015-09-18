@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'trainers/dashboard'
+
   devise_for :studios
   devise_for :trainers
   devise_for :users
@@ -15,6 +17,10 @@ Rails.application.routes.draw do
 
   authenticated :studio do
     root 'studios#dashboard', as: :studio_root
+  end
+
+  authenticated :trainer do
+    root 'trainers#dashboard', as: :trainer_root
   end
 
   authenticated :user do
