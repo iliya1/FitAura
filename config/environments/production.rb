@@ -83,6 +83,7 @@ Rails.application.configure do
       :bucket => 'fitaura',
       :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
       :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
-    }
+    },
+    :bucket => 'fitaura'
   }
 end
