@@ -26,6 +26,8 @@ class StudiosController < ApplicationController
 
   protected
 
+  private
+
   def studio_attributes
     params.require(:studio).permit( :address1, :address2, :phone, :logo )
   end
