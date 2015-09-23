@@ -2,6 +2,9 @@ class TrainersController < ApplicationController
   before_action :authenticate_trainer!, :only => [:edit, :update, :dashboard]
   before_action :load_current_trainer, :only => [:edit, :update, :dashboard]
 
+  def index
+  end
+
   def dashboard
   end
 

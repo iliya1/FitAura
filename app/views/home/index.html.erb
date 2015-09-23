@@ -1,16 +1,29 @@
-<div class="background-holder">
+<div class="clients background-holder">
   <div class="row">
     <div class="small-12 medium-12 columns">
       <ul class="landing-page-header">
         <li><%= link_to "For Clients", "#", class:"active" %></li>
-        <li><%= link_to "For Studios", "#" %></li>
-        <li><%= link_to "For Trainers", "#" %></li>
+        <li><%= link_to "For Studios", studios_path %></li>
+        <li><%= link_to "For Trainers", trainers_path %></li>
       </ul>
     </div>
   </div>
-  <h1>FitAura</h1>
-  <h3>An innovative new platform which allows you to find the best fitness instructors or studios in your areas</h3>
- <%= link_to "SIGN UP TODAY", new_user_registration_path, class:"signup button" %>
+  <div class="row">
+    <div class="small-12 medium-12 columns">
+      <h1>FitAura</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 medium-6 columns">
+      <h3>An innovative new platform which allows you to find the best fitness instructors or studios in your areas</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 medium-12 columns">
+      <%= link_to "SIGN UP TODAY", new_user_registration_path, class:"signup button" %>
+    </div>
+  </div>
 
 </div>
 <div class="row landing-page-text">
@@ -33,15 +46,15 @@
 </div>
 <div class="row landing-page-text">
   <div class="small-12 medium-6 columns">
-    <%= link_to "#" do %>
-      <%= image_tag "background.jpg" %>
-      <h4>For Trainers</h4>
+    <%= link_to studios_path do %>
+      <%= image_tag "bg-crossfit.jpg" %>
+      <h5>For Studios</h5>
     <% end %>
   </div>
   <div class="small-12 medium-6 columns">
-    <%= link_to "#" do %>
-      <%= image_tag "background.jpg" %>
-      <h4>For Studios</h4>
+    <%= link_to trainers_path do %>
+      <%= image_tag "bg-sideview.jpg" %>
+      <h4>For Trainers</h4>
     <% end %>
   </div>
 </div>

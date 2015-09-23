@@ -14,10 +14,11 @@
   </head>
 
   <body>
-    <% if current_page?( controller: "home", action: "index" ) %>
-    <% else %>
-      <%= render "shared/header" %>
-      <%= display_flash_messages %>
+    <% unless controller_name == "home" ||
+     controller_name == "studios" && action_name == "index" ||
+     controller_name == "trainers" && action_name == "index" %>
+       <%= render "shared/header" %>
+       <%= display_flash_messages %>
     <% end %>
 
     <%= yield %>
