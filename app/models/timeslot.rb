@@ -3,6 +3,8 @@ class Timeslot < ActiveRecord::Base
   
   has_many :bookings
 
+  validates :start_time, presence: true
+
   def enum_days
     days.reject(&:empty?).join(", ")
   end
