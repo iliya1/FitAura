@@ -6,6 +6,7 @@
 
     <title><%= content_for?(:title) ? yield(:title) : "FitAura" %></title>
 
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
@@ -13,8 +14,11 @@
   </head>
 
   <body>
-    <%= render "shared/header" %>
-    <%= display_flash_messages %>
+    <% if current_page?( controller: "home", action: "index" ) %>
+    <% else %>
+      <%= render "shared/header" %>
+      <%= display_flash_messages %>
+    <% end %>
 
     <%= yield %>
 

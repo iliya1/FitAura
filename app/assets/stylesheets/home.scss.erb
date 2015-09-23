@@ -14,7 +14,7 @@
 }
 .background-holder {
   height: 840px;
-  background: url(<%= asset_path "background.jpg" %>) no-repeat center center fixed;
+  background: url(<%= asset_path "bg-bodybuilder.jpg" %>) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -23,26 +23,109 @@
   z-index:0;
 
   & h1 {
-    color: #FDFDFD;
+    color: #FFFEFD;
     display: inline-block;
-    margin-top: 320px;
-    margin-left: 120px;
+    margin-top: 120px;
+    margin-left: 50px;
+    font-size: 58px;
+    font-weight: bold;
   }
   & h3 {
     color: #FAFAFA;
-    margin-left: 120px;
-    font-size: 20px;
+    margin-left: 50px;
+    font-size: 40px;
     width: 50%;
   }
 
+  .signup {
+    margin-left:50px;
+    margin-top: 20px;
+    background-color: rgb(250, 175, 64);
+    font-size: 15px;
+    letter-spacing: 2px;
+    font-family: 'Arimo', sans-serif;
+    &:hover {
+      background-color: rgb(40, 55, 54);
+    }
+  }
+
 }
-.background-holder:after{
-    position:absolute;
-    content:"";
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-    background:rgba(255,255,255,0.3);
-    z-index: -1;
+
+.landing-page-text {
+  margin-top: 50px;
+  & p {
+    font-size: 22px;
+  }
+
+  & img {
+    position: relative;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+  }
+  .signup {
+    font-size: 15px;
+    letter-spacing: 2px;
+    font-family: 'Arimo', sans-serif;
+  }
+
+  & h4 {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+
+    letter-spacing: 2px;
+    font-family: 'Arimo', sans-serif;
+    font-size: 20px;
+
+    text-align: center;
+    color: white;
+
+    text-transform: uppercase;
+  }
+}
+
+.landing-page-header {
+  list-style-type: none;
+  float:right;
+  margin-top: 40px;
+  & li {
+    display: inline-block;
+    margin-right: 20px;
+    & a {
+      position: relative;
+      color: #4c6972;
+      font-size: 13px;
+      text-decoration: underline;
+
+      &:before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        bottom: -2px;
+        left: 0;
+        background-color: #4c6972;
+        visibility: hidden;
+        -webkit-transform: scaleX(0);
+        transform: scaleX(0);
+        -webkit-transition: all 0.3s ease-in-out 0s;
+        transition: all 0.3s ease-in-out 0s;
+      }
+      &:hover {
+        text-decoration: none;
+      }
+      &:hover:before {
+        visibility: visible;
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
+      }
+
+    }
+    & a.active {
+      color: #c0f0e0;
+    }
+
+  }
+
 }

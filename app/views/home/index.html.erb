@@ -1,36 +1,48 @@
 <div class="background-holder">
-  <h1>Introducing FitAura</h1>
-  <h3>FitAura is an innovative new platform which allows you to find the best fitness instructors or studios in your areas</h3>
-</div>
-<div class="row">
-  <div class="small-12 medium-12 columns">
-    <H2>Who is it for?</H2>
+  <div class="row">
+    <div class="small-12 medium-12 columns">
+      <ul class="landing-page-header">
+        <li><%= link_to "For Clients", "#", class:"active" %></li>
+        <li><%= link_to "For Studios", "#" %></li>
+        <li><%= link_to "For Trainers", "#" %></li>
+      </ul>
+    </div>
   </div>
+  <h1>FitAura</h1>
+  <h3>An innovative new platform which allows you to find the best fitness instructors or studios in your areas</h3>
+ <%= link_to "SIGN UP TODAY", new_user_registration_path, class:"signup button" %>
+
 </div>
-<div class="row">
-  <div class="small-12 medium-12 columns">
-    <H3>Fitness Enthusiasts</H3>
+<div class="row landing-page-text">
+  <div class="small-12 medium-6 columns">
     <p>
-      Discover workout that's right for you. We provide you with access to a variety of studios and trainers with no strings attached. Find and keep the ones you like or add variety to your normal routine.
+        Discover workout that's right for you. We provide you with access to a variety of studios and trainers with no strings attached. Find and keep the ones you like or add variety to your normal routine.
     </p>
-    <%= link_to "Sign Up", new_user_registration_path, class:"small radius button" %>
-  </div>
-</div>
-<div class="row">
-  <div class="small-12 medium-12 columns">
-    <H3>Fitness Studios</H3>
     <p>
-      We help you fill your empty classes with potential new members, and help you gain more exposure through our platform and events. Helping you increase your revenue on a daily basis.
+         Fitness just got a whole lot easier. Our web and mobile apps will change the way you work out. 
     </p>
-    <%= link_to "Sign Up", new_studio_registration_path, class:"small radius button" %>
-  </div>
-</div>
-<div class="row">
-  <div class="small-12 medium-12 columns">
-    <H3>Personal Trainers</H3>
+    <br /><br />
     <p>
-      For all fitness professionals/trainers, we provide a cost-effective marketing and distribution platform that enables you to find new clients by utilising classes and events, scheduling appointments via our matching engine and managing your sessions, locations, prices, auto-follow up and more.
+          Ready for your next challenge?
     </p>
-    <%= link_to "Sign Up", new_trainer_registration_path, class:"small radius button" %>
+   <%= link_to "SIGN UP TODAY", new_user_registration_path, class:"signup primary button" %>
+  </div>
+  <div class="small-12 medium-6 columns">
+    <%= image_tag "background.jpg" %>
   </div>
 </div>
+<div class="row landing-page-text">
+  <div class="small-12 medium-6 columns">
+    <%= link_to "#" do %>
+      <%= image_tag "background.jpg" %>
+      <h4>For Trainers</h4>
+    <% end %>
+  </div>
+  <div class="small-12 medium-6 columns">
+    <%= link_to "#" do %>
+      <%= image_tag "background.jpg" %>
+      <h4>For Studios</h4>
+    <% end %>
+  </div>
+</div>
+<br /><br />
