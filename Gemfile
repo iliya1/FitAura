@@ -53,6 +53,8 @@ gem "devise"
 gem 'foundation-rails'
 gem 'foundation_rails_helper'
 
+gem 'jquery-ui-rails'
+
 gem "paperclip"
 gem 'aws-sdk', '~> 1.6'
 

@@ -32,7 +32,7 @@ class ClassesController < ApplicationController
   private
 
   def studio_class_params
-    params.require(:studio_class).permit(:name, :description, :points)
+    params.require(:studio_class).permit(:name, :description, :instructor_name, :price)
   end
 
 end

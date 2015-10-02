@@ -43,7 +43,7 @@ class TimeslotsController < ApplicationController
   private
 
   def timeslot_params
-    params.require(:timeslot).permit(:start_time, :duration, :days => []).merge(studio_class_id: @studio_class.id)
+    params.require(:timeslot).permit(:start_date, :end_date, :start_time, :duration, :days => []).merge(studio_class_id: @studio_class.id)
   end
 
 end

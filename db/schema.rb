@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150918230822) do
+ActiveRecord::Schema.define(version: 20151002191951) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,8 +30,9 @@ ActiveRecord::Schema.define(version: 20150918230822) do
     t.string   "name"
     t.text     "description"
     t.integer  "points"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "instructor_name"
   end
 
   create_table "studios", force: :cascade do |t|
@@ -69,6 +70,8 @@ ActiveRecord::Schema.define(version: 20150918230822) do
     t.integer  "duration"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+    t.date     "start_date"
+    t.date     "end_date"
   end
 
   create_table "trainers", force: :cascade do |t|
