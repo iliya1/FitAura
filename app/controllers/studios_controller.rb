@@ -1,5 +1,5 @@
 class StudiosController < ApplicationController
-  before_action :authenticate_studio!, :only => [:edit, :update, :dashboard]
+  before_action :authenticate_studio!, :only => [:edit, :update, :dashboard, :clients]
 
   def index
   end
@@ -11,6 +11,12 @@ class StudiosController < ApplicationController
   def edit
     @studio = current_studio
   end
+
+  def clients
+    @studio = current_studio
+    @bookings = current_studio.bookings
+  end
+
 
   def update
     @studio = current_studio

@@ -22,6 +22,7 @@
       </ul>
       <ul class="left">
         <li>  <%= link_to "Schedule", studio_classes_path(current_studio)  %></li>
+        <li>  <%= link_to "Client history", studio_clients_path(current_studio)  %></li>
       </ul>
     <% elsif trainer_signed_in? %>
       <ul class="right">

@@ -17,7 +17,11 @@ class Studio < ActiveRecord::Base
 
   has_many :studio_classes
 
+  has_many :timeslots, :through => :studio_classes
+  has_many :bookings, :through => :timeslots
+
   def to_param
     "#{id}-#{studio_name.parameterize}"
   end
+
 end
