@@ -48,6 +48,8 @@ group :production do
   gem "rails_12factor"
 end
 
+gem "american_date"
+
 gem "devise"
 
 gem 'foundation-rails'
