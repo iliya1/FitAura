@@ -10,14 +10,30 @@
     <ul class="no-bullet">
       <% if @schedule.upcoming? %>
         <% @schedule.slots.each do |slots_for_day| %>
-          <h4><%= slots_for_day[:day].to_date.strftime("%A %b %d") %></h4>
-          <% slots_for_day[:timeslots].each do |slot| %>
+          <% day = slots_for_day[:day].to_date %>
+          <% timeslots = slots_for_day[:timeslots] %>
+
+          <h4><%= day.strftime("%A %b %d") %></h4>
+
+          <% timeslots.each do |slot| %>
             <h6><%= slot.start_time.strftime("%l:%M %p") %> <%= slot.studio_class.name %></h6>
-          <% end %>
+            <% if BookingService.booked?(current_user, slot, day) %>
+              <strong>Class booked</strong>
+          <% elsif slot.available_for_day(day) > 0 %>
+            <%= form_for :booking, url:book_class_path do |f| %>
+              <%= f.hidden_field :timeslot_id, value: slot.id %>
+              <%= f.hidden_field :booking_date, value: slots_for_day[:day] %>
+              <%= f.submit "book this time", class:"tiny primary button" %>
+              <% end # slots available %>
+
+            <% end # each timeslots %>
+
+            <% end # each day %>
+          <% end # upcoming %>
+
+        <% else %>
+          No upcoming classes
         <% end %>
-      <% else %>
-        No upcoming classes
-      <% end %>
     </ul>
   <% end %>
 <% end %>

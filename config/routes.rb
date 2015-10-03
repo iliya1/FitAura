@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 
   authenticated :user do
     get "/account", to: "users#account", as: :user_account
-    post "/book/:timeslot_id", to: "users#book", as: :book_class
+    post "/book", to: "bookings#create", as: :book_class
     root 'users#home', as: :user_root
   end
 
