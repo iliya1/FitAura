@@ -1,39 +1,21 @@
 <%= render layout:"shared/panel" do %>
   <h1><%= @studio.studio_name %></h1>
 
+  <ul class="no-bullet">
+    <% if @schedule.upcoming? %>
+      <%= render "class_schedule" %>
+    <% else %>
+      No upcoming classes
+    <% end %>
+  </ul>
+
   <% if current_studio == @studio %>
+    <hr>
+    <h2>Manage classes</h2>
     <ul class="no-bullet">
       <%= render @studio_classes %>
     </ul>
     <%= link_to "Add Class", new_studio_class_path, class:"tiny radius button" %>
   <% else %>
-    <ul class="no-bullet">
-      <% if @schedule.upcoming? %>
-        <% @schedule.slots.each do |slots_for_day| %>
-          <% day = slots_for_day[:day].to_date %>
-          <% timeslots = slots_for_day[:timeslots] %>
-
-          <h4><%= day.strftime("%A %b %d") %></h4>
-
-          <% timeslots.each do |slot| %>
-            <h6><%= slot.start_time.strftime("%l:%M %p") %> <%= slot.studio_class.name %></h6>
-            <% if BookingService.booked?(current_user, slot, day) %>
-              <strong>Class booked</strong>
-          <% elsif slot.available_for_day(day) > 0 %>
-            <%= form_for :booking, url:book_class_path do |f| %>
-              <%= f.hidden_field :timeslot_id, value: slot.id %>
-              <%= f.hidden_field :booking_date, value: slots_for_day[:day] %>
-              <%= f.submit "book this time", class:"tiny primary button" %>
-              <% end # slots available %>
-
-            <% end # each timeslots %>
-
-            <% end # each day %>
-          <% end # upcoming %>
-
-        <% else %>
-          No upcoming classes
-        <% end %>
-    </ul>
   <% end %>
 <% end %>

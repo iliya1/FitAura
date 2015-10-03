@@ -1,0 +1,21 @@
+<% @schedule.slots.each do |slots_for_day| %>
+  <% day = slots_for_day[:day].to_date %>
+  <% timeslots = slots_for_day[:timeslots] %>
+
+  <h4><%= day.strftime("%A %b %d") %></h4>
+
+  <% timeslots.each do |slot| %>
+    <h6><%= slot.start_time.strftime("%l:%M %p") %> <%= slot.studio_class.name %></h6>
+
+    <% if user_signed_in? %>
+      <% if BookingService.booked?(current_user, slot, day) %>
+        <strong>Class booked</strong>
+      <% elsif slot.available_for_day(day) > 0 %>
+        <%= render "booking_form", timeslot_id: slot.id, booking_date: day %>
+      <% end %>
+    <% elsif studio_signed_in? && @studio == current_studio %>
+      <%# cancel class %>
+
+    <% end %>
+  <% end %>
+<% end %>

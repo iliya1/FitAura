@@ -11,5 +11,12 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :zipcode, :email, :password, :password_confirmation, :current_password) }
   end
 
+def location
+  if Rails.env.development?
+    Geocoder.search(request.remote_ip).first
+  else
+    request.location
+  end
+end
 
 end

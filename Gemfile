@@ -50,6 +50,8 @@ end
 
 gem "american_date"
 
+gem "geocoder"
+
 gem "devise"
 
 gem 'foundation-rails'
