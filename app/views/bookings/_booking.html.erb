@@ -1,2 +1,3 @@
-Booking for: <%= booking.user.name %>
-<br /> <%= booking.timeslot.start_time %>
+Client name: <%= booking.user.name %><br />
+Date: <%= booking.booking_date.to_s(:long) %><br />
+Time: <%= booking.timeslot.start_time.strftime("%l:%M %p") %><br /><br />

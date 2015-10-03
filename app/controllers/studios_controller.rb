@@ -14,7 +14,7 @@ class StudiosController < ApplicationController
 
   def clients
     @studio = current_studio
-    @bookings = current_studio.bookings
+    @bookings = current_studio.bookings.includes(:timeslot).order(:booking_date)
   end
 
 
