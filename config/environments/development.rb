@@ -50,10 +50,5 @@ Rails.application.configure do
     :bucket => 'fitaura1'
   }
 
-  class ActionDispatch::Request
-    def remote_ip
-      "71.237.91.66"
-    end
-  end
 end
 

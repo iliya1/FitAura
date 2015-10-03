@@ -4,6 +4,8 @@ class Studio < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  geocoded_by :address
+  after_validation :geocode, if: ->(obj){ obj.address1.present? and obj.address1_changed? }
 
   validates :name, :studio_name, :zipcode, presence: true
 
@@ -22,6 +24,10 @@ class Studio < ActiveRecord::Base
 
   def to_param
     "#{id}-#{studio_name.parameterize}"
+  end
+
+  def address
+      [address1, zipcode].compact.join(', ')
   end
 
 end

@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
     @location = location
-    @studios = Studio.where(zipcode: @location.postal_code)
+    @studios = Studio.near([@location.latitude, @location.longitude]) if @location
   end
 end
