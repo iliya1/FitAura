@@ -3,6 +3,7 @@ class ClassesController < ApplicationController
 
   def index
     @studio_classes = @studio.studio_classes
+    @schedule = ScheduleService.new(@studio, Time.now, Time.now + 1.month)
   end
 
   def show
