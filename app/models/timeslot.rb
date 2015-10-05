@@ -1,5 +1,5 @@
 class Timeslot < ActiveRecord::Base
-  belongs_to :studio_class
+  belongs_to :scheduleable, polymorphic: true
   
   has_many :bookings
 

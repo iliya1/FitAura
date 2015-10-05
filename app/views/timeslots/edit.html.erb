@@ -1,6 +1,6 @@
 <%= render layout:"shared/panel" do %>
   <h1>Edit time</h1>
-  <%= form_for @timeslot, url: studio_class_timeslot_path(@studio, @studio_class, @timeslot) do |f| %>
+  <%= form_for [@resource_class, @timeslot] do |f| %>
     <%= render "form", f:f %>
   <% end %>
 

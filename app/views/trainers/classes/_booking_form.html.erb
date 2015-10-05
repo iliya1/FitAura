@@ -1,0 +1,5 @@
+<%= form_for :booking, url:book_class_path do |f| %>
+  <%= f.hidden_field :timeslot_id, value: timeslot_id %>
+  <%= f.hidden_field :booking_date, value: booking_date %>
+  <%= f.submit "book this time", class:"tiny primary button" %>
+<% end %>

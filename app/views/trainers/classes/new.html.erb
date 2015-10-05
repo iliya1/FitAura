@@ -1,0 +1,11 @@
+<%= render layout:"shared/panel" do %>
+  <h1>Add a class</h1>
+  <%= form_for @trainer_class do |f| %>
+    <%= f.text_field :name %>
+    <%= f.text_area :description %>
+    <%= f.check_box :semiprivate %>
+    <%= f.number_field :price, placeholder: "Price in dollars", min:3, step:1%>
+    <%= f.submit %>
+  <% end %>
+
+<% end %>

@@ -1,0 +1,21 @@
+<%= render layout:"shared/panel" do %>
+  <h1><%= @trainer.name %></h1>
+
+  <ul class="no-bullet">
+    <% if @schedule.upcoming? %>
+      <%= render "class_schedule" %>
+    <% else %>
+      No upcoming classes
+    <% end %>
+  </ul>
+
+  <% if current_trainer == @trainer %>
+    <hr>
+    <h2>Manage classes</h2>
+    <ul class="no-bullet">
+      <%= render @trainer_classes %>
+    </ul>
+    <%= link_to "Add Class", new_trainer_class_path, class:"tiny radius button" %>
+  <% else %>
+  <% end %>
+<% end %>

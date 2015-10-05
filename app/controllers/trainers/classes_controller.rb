@@ -7,18 +7,18 @@ class Trainers::ClassesController < ApplicationController
   end
 
   def show
-    @studio_class = @studio.studio_classes.find params[:id]
+    @trainer_class = @trainer.trainer_classes.find params[:id]
   end
 
   def new
-    @studio_class = StudioClass.new
+    @trainer_class = TrainerClass.new
   end
 
   def create
-    @studio_class = @studio.studio_classes.new studio_class_params
-    if @studio_class.valid?
-      @studio_class.save!
-      redirect_to studio_class_path(@studio, @studio_class)
+    @trainer_class = @trainer.trainer_classes.new trainer_class_params
+    if @trainer_class.valid?
+      @trainer_class.save!
+      redirect_to trainer_class_path(@trainer, @trainer_class)
     else
       render :new
     end

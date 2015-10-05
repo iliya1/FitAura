@@ -1,5 +1,6 @@
 class Studios::ClassesController < ApplicationController
   before_action :load_studio
+  before_action :load_class, only: [:show, :edit, :update, :destroy]
 
   def index
     @studio_classes = @studio.studio_classes
@@ -7,7 +8,14 @@ class Studios::ClassesController < ApplicationController
   end
 
   def show
-    @studio_class = @studio.studio_classes.find params[:id]
+  end
+
+  def edit
+  end
+
+  def update
+    @studio_class.update_attributes studio_class_params
+    redirect_to :back
   end
 
   def new
@@ -28,6 +36,10 @@ class Studios::ClassesController < ApplicationController
 
   def load_studio
     @studio = Studio.find params[:studio_id]
+  end
+
+  def load_class
+    @studio_class = @studio.studio_classes.find params[:id]
   end
 
   private

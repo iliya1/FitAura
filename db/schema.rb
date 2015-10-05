@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151005013026) do
+ActiveRecord::Schema.define(version: 20151005032820) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,16 +67,19 @@ ActiveRecord::Schema.define(version: 20151005013026) do
   add_index "studios", ["reset_password_token"], name: "index_studios_on_reset_password_token", unique: true, using: :btree
 
   create_table "timeslots", force: :cascade do |t|
-    t.integer  "studio_class_id"
-    t.text     "days",            default: [],              array: true
+    t.text     "days",              default: [],              array: true
     t.time     "start_time"
     t.integer  "duration"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.date     "start_date"
     t.date     "end_date"
-    t.integer  "capacity",        default: 1
+    t.integer  "capacity",          default: 1
+    t.integer  "scheduleable_id"
+    t.string   "scheduleable_type"
   end
+
+  add_index "timeslots", ["scheduleable_type", "scheduleable_id"], name: "index_timeslots_on_scheduleable_type_and_scheduleable_id", using: :btree
 
   create_table "trainer_classes", force: :cascade do |t|
     t.integer  "trainer_id"
@@ -85,6 +88,7 @@ ActiveRecord::Schema.define(version: 20151005013026) do
     t.boolean  "semiprivate", default: false
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.integer  "points"
   end
 
   create_table "trainers", force: :cascade do |t|

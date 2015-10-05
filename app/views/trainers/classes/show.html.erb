@@ -1,25 +1,25 @@
 <%= render layout:"shared/page" do %>
   <div>
-    <h1> <%= @studio_class.name %></h1>
-    <p> <%= @studio_class.description %></p>
-    Cost: <%= @studio_class.points %> points
+    <h1> <%= @trainer_class.name %></h1>
+    <p> <%= @trainer_class.description %></p>
+    Cost: <%= @trainer_class.points %> points
   </div>
 
   
     <br />
-    <% if current_studio == @studio %>
-      <%= link_to "Edit Class",  edit_studio_class_path(@studio, @studio_class), class:"tiny radius button" %>
+    <% if current_trainer == @trainer %>
+      <%= link_to "Edit Class",  edit_trainer_class_path(@trainer, @trainer_class), class:"tiny radius button" %>
     <% end %>
     <hr >
 
     <h3>Schedule</h3>
-    <% @studio_class.timeslots.each do |ts| %>
+    <% @trainer_class.timeslots.each do |ts| %>
       <ul class="no-bullet">
         <li><strong>Start: <%= ts.start_time.to_s(:time) %></strong></li>
         <li>Duration: <%= ts.duration %> minutes</li>
         <li>Days of the week: <%= ts.enum_days %></li>
-        <% if current_studio == @studio %>
-            <li><%= link_to "Edit", edit_studio_class_timeslot_path( @studio_class, ts) %>
+        <% if current_trainer == @trainer %>
+            <li><%= link_to "Edit", edit_trainer_class_timeslot_path( @trainer_class, ts) %>
         <% end %>
         <% if user_signed_in? %>
           <% if current_user.timeslots.include?(ts) %>
@@ -31,8 +31,8 @@
       </ul>
       <br />
     <% end %>
-    <% if current_studio == @studio %>
-      <%= link_to "Add Time",  new_studio_class_timeslot_path( @studio_class), class:"tiny radius button" %>
+    <% if current_trainer == @trainer %>
+      <%= link_to "Add Time",  new_trainer_class_timeslot_path( @trainer_class), class:"tiny radius button" %>
     <% end %>
 
 <% end %>
