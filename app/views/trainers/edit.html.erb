@@ -4,6 +4,8 @@
     <%= image_tag @trainer.photo.url(:medium) %><br /><br />
 
     <%= f.file_field :photo %>
+    <%= f.text_area :about %>
+    <%= f.text_field :phone %>
 
     <br />
     <%= f.submit %>

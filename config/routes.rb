@@ -5,13 +5,17 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :studios do
-    resources :classes do
+    resources :classes, controller:"studios/classes" do
       resources :timeslots
     end
     get "clients", to: "studios#clients", as: :clients
   end
 
   resources :trainers do
+    resources :classes, controller: "trainers/classes" do
+      resources :timeslots
+    end
+    get "clients", to: "trainers#clients", as: :clients
   end
 
   authenticated :studio do

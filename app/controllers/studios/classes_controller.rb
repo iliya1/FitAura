@@ -1,4 +1,4 @@
-class ClassesController < ApplicationController
+class Studios::ClassesController < ApplicationController
   before_action :load_studio
 
   def index

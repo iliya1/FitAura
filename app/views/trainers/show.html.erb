@@ -1,6 +1,8 @@
 <%= render layout:"shared/page" do %>
   <h1><%= @trainer.name %> </h1>
   <%= image_tag @trainer.photo.url(:medium) %><br />
+  <%= simple_format @trainer.about %>
+  <%= @trainer.phone %>
 
     <hr>
 

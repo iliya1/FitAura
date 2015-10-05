@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151003200410) do
+ActiveRecord::Schema.define(version: 20151005013026) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,15 @@ ActiveRecord::Schema.define(version: 20151003200410) do
     t.integer  "capacity",        default: 1
   end
 
+  create_table "trainer_classes", force: :cascade do |t|
+    t.integer  "trainer_id"
+    t.string   "name"
+    t.text     "description"
+    t.boolean  "semiprivate", default: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
   create_table "trainers", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -99,6 +108,8 @@ ActiveRecord::Schema.define(version: 20151003200410) do
     t.datetime "photo_updated_at"
     t.float    "latitude"
     t.float    "longitude"
+    t.text     "about"
+    t.string   "phone"
   end
 
   add_index "trainers", ["email"], name: "index_trainers_on_email", unique: true, using: :btree

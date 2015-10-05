@@ -1,9 +1,9 @@
 class ScheduleService
-  def initialize(studio, start_date, end_date)
-    @studio = studio
+  def initialize(resource, start_date, end_date)
+    @resource = resource
     @start_date = start_date.to_date
     @end_date = end_date.to_date
-    @available_timeslots = @studio.timeslots.to_a
+    @available_timeslots = @resource.timeslots.to_a
   end
 
   def slots

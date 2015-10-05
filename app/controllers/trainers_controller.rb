@@ -32,7 +32,7 @@ class TrainersController < ApplicationController
   private
 
   def trainer_attributes
-    params.require(:trainer).permit( :photo )
+    params.require(:trainer).permit( :photo , :about, :phone )
   end
 
 end
