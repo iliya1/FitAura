@@ -34,10 +34,6 @@ class Studios::ClassesController < ApplicationController
 
   protected
 
-  def load_studio
-    @studio = Studio.find params[:studio_id]
-  end
-
   def load_class
     @studio_class = @studio.studio_classes.find params[:id]
   end

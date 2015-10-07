@@ -1,2 +1,12 @@
-<h1>Instructors#index</h1>
-<p>Find me in app/views/instructors/index.html.erb</p>
+<%= render layout:"shared/page" do %>
+  <h1>Instructors</h1>
+  <ul class="no-bullet">
+    <%= render @instructors %>
+  </ul>
+
+  <% if @studio == current_studio %>
+    <hr>
+    <%= link_to "Add Instructor", new_studio_instructor_path(@studio) %>
+  <% end %>
+
+<% end %>

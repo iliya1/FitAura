@@ -1,0 +1,14 @@
+<%= render layout:"shared/panel" do %>
+  <%= form_for [@studio, @instructor], html: { multipart: true } do |f| %>
+    <%= image_tag @instructor.photo.url(:medium) %><br /><br />
+
+    <%= f.text_field :name %>
+    <%= f.text_area :about %>
+    <%= f.file_field :photo %>
+
+    <br />
+    <%= f.submit %>
+
+  <% end %>
+    <%= link_to "Back", studio_instructors_path(@studio)  %>
+<% end %>

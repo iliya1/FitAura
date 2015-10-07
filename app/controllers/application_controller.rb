@@ -20,4 +20,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def load_studio
+    @studio = Studio.find params[:studio_id]
+  end
+
 end
