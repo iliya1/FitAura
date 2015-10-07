@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :studios do
     resources :classes, controller:"studios/classes"
     get "clients", to: "studios#clients", as: :clients
+    resources :instructors
   end
   resources :studio_classes do
     resources :timeslots
