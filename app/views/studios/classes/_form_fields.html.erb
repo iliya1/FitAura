@@ -1,0 +1,6 @@
+<%= check_box_tag :repeat, "repeat" %> Repeat class<br />
+<%= f.text_field :name %>
+<%= f.text_area :description %>
+<%= f.select :instructor_id, @studio.instructors.collect{ |i| [ i.name, i.id ] } %>
+<%= f.number_field :price, placeholder: "Price in dollars", min:3, step:1%>
+<%= f.submit %>

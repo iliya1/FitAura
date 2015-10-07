@@ -3,7 +3,6 @@
   <%= form_for @studio_class, url:studio_class_url(@studio, @studio_class) do |f| %>
     <%= f.text_field :name %>
     <%= f.text_area :description %>
-    <%= f.text_field :instructor_name %>
     <%= f.number_field :price, placeholder: "Price in dollars", min:3, step:1%>
     <%= f.submit %>
   <% end %>

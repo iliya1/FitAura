@@ -1,6 +1,7 @@
 <%= render layout:"shared/page" do %>
   <div>
-    <h1> <%= @studio_class.name %></h1>
+    <h2> <%= @studio_class.name %></h1>
+    <h4> <%= @studio_class.instructor.name %></h1>
     <p> <%= @studio_class.description %></p>
     Cost: <%= @studio_class.points %> points
   </div>

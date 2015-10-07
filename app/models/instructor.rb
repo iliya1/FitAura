@@ -1,5 +1,6 @@
 class Instructor < ActiveRecord::Base
   belongs_to :studio
+  has_one :studio_class
   validates :name, :about, presence: true
 
   has_attached_file :photo,

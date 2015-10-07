@@ -4,9 +4,9 @@ class StudioClass < ActiveRecord::Base
 
   attr_writer :price
   
-  validates :name, :description, :instructor_name, :price, presence: true
+  validates :name, :description, :instructor_id, :price, presence: true
 
-  #before_save :convert_price_to_points
+  belongs_to :instructor
   
 
   def to_param
