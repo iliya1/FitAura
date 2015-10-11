@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def home
     @studios = Studio.where( zipcode: current_user.zipcode )
+    flash[:event] = "viewed dashboard"
   end
 
   def account

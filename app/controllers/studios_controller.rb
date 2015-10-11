@@ -28,6 +28,7 @@ class StudiosController < ApplicationController
   end
 
   def dashboard
+    flash[:event] = "viewed dashboard"
   end
 
   protected

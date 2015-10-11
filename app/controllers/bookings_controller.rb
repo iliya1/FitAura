@@ -7,6 +7,7 @@ class BookingsController < ApplicationController
     if booking_service.valid?
       booking_service.book!
       flash[:notice] = "Your class has been booked"
+      flash[:event] = "booked an event"
     else
       flash[:error] = booking_service.error
 

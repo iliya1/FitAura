@@ -23,6 +23,7 @@ class ChargesController < ApplicationController
     current_user.points = current_user.points + 500
     current_user.save!
 
+    flash[:event] = "added points"
     redirect_to user_account_path
 
   rescue Stripe::CardError => e

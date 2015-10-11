@@ -6,6 +6,7 @@ class TrainersController < ApplicationController
   end
 
   def dashboard
+    flash[:event] = "viewed dashboard"
   end
 
   def show
