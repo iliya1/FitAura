@@ -18,6 +18,7 @@ class Trainers::ClassesController < ApplicationController
     @trainer_class = @trainer.trainer_classes.new trainer_class_params
     if @trainer_class.valid?
       @trainer_class.save!
+      flash[:event] = "added class"
       redirect_to trainer_class_path(@trainer, @trainer_class)
     else
       render :new

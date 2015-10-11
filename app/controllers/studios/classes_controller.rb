@@ -26,6 +26,7 @@ class Studios::ClassesController < ApplicationController
     @studio_class = @studio.studio_classes.new studio_class_params
     if @studio_class.valid?
       @studio_class.save!
+      flash[:event] = "added class"
       redirect_to studio_class_path(@studio, @studio_class)
     else
       render :new

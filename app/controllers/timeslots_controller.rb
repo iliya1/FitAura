@@ -10,6 +10,7 @@ class TimeslotsController < ApplicationController
     @timeslot = Timeslot.new timeslot_params
     if @timeslot.valid?
       @timeslot.save!
+      flash[:event] = "added timeslot"
       redirect_to resource_path
     else
       render :new

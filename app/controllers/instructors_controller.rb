@@ -18,6 +18,7 @@ class InstructorsController < ApplicationController
     @instructor = @studio.instructors.new instructor_params
     if @instructor.valid?
       @instructor.save!
+      flash[:event] = "added instructor"
       redirect_to studio_instructors_path(@instructor)
     else
       render :new
