@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def home
-    @studios = Studio.where( zipcode: current_user.zipcode )
+    @classes = SearchService.classes(current_user.zipcode, params[:query])
     flash[:event] = "viewed dashboard"
   end
 

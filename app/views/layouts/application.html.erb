@@ -24,7 +24,7 @@
 
     <%= yield %>
 
-    <% if flash[:event] %>
+    <% if flash[:event] && Rails.env.production? %>
       <script>
         amplitude.logEvent("<%= flash[:event] %>");
       </script>

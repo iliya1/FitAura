@@ -1,5 +1,16 @@
 <%= render layout:"shared/panel" do %>
   <h1>Welcome, <%= current_user.name %></h1>
-  <h3>Studios near you</h3>
-  <%= render @studios %>
+  <%= form_tag({controller: "users", action: "home"}, method: "get" ) do %>
+    <%= text_field_tag(:query, params[:query], placeholder:"Find classes near you") %>
+    <%= submit_tag "Search" %>
+  <% end %>
+
+  <% @classes.each do |c| %>
+    <% if c.class == StudioClass %>
+      <%= link_to c.name, studio_class_path(c.studio, c) %><br/>
+    <% elsif c.class == TrainerClass %>
+      <%= link_to c.name, trainer_class_path(c.trainer, c) %><br/>
+    <% end %>
+  <% end %>
+
 <% end %>
