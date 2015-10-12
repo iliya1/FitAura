@@ -3,7 +3,7 @@ class BookingService
     @user = user
     @timeslot = Timeslot.find booking_params[:timeslot_id]
     @booking_date = booking_params[:booking_date].to_date
-    @studio_class = @timeslot.studio_class
+    @resource_class = @timeslot.scheduleable
 
     @errors = []
     validate
@@ -19,7 +19,7 @@ class BookingService
 
   def validate
     @errors << "Timeslot or booking date not specified" unless @timeslot && @booking_date
-    @errors << "Not enough points to book this class" if @user.points < @studio_class.points
+    @errors << "Not enough points to book this class" if @user.points < @resource_class.points
     @errors << "No booking self for that time" if @timeslot.available_for_day(@booking_date) < 1
   end
 
@@ -27,7 +27,7 @@ class BookingService
   def book!
     @user.bookings.create! timeslot_id: @timeslot.id, booking_date: @booking_date
 
-    @user.points = @user.points - @studio_class.points
+    @user.points = @user.points - @resource_class.points
     @user.save!
   end
 

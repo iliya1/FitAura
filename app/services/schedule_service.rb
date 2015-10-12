@@ -1,9 +1,9 @@
 class ScheduleService
-  def initialize(resource, start_date, end_date)
+  def initialize(resource, start_date, end_date, scheduleable_class = nil )
     @resource = resource
     @start_date = start_date.to_date
     @end_date = end_date.to_date
-    @available_timeslots = @resource.timeslots.to_a
+    @available_timeslots = scheduleable_class ? @resource.timeslots.where(scheduleable_id: scheduleable_class.id).to_a : @resource.timeslots.to_a
   end
 
   def slots

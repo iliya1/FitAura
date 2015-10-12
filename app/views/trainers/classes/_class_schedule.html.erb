@@ -5,7 +5,11 @@
   <h4><%= day.strftime("%A %b %d") %></h4>
 
   <% timeslots.each do |slot| %>
-    <h6><%= slot.start_time.strftime("%l:%M %p") %> <%= slot.scheduleable.name %></h6>
+  <% unless  @trainer_class %>
+    <h5> <%= slot.scheduleable.name %></h5>
+  <% end %>
+    <h6><%= slot.start_time.strftime("%l:%M %p") %> </h6>
+
 
     <% if user_signed_in? %>
       <% if BookingService.booked?(current_user, slot, day) %>

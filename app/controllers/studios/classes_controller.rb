@@ -8,6 +8,7 @@ class Studios::ClassesController < ApplicationController
   end
 
   def show
+    @schedule = ScheduleService.new(@studio, Time.now, Time.now + 1.month, @studio_class )
   end
 
   def edit

@@ -14,24 +14,9 @@
     <hr >
 
     <h3>Schedule</h3>
-    <% @studio_class.timeslots.each do |ts| %>
-      <ul class="no-bullet">
-        <li><strong>Start: <%= ts.start_time.to_s(:time) %></strong></li>
-        <li>Duration: <%= ts.duration %> minutes</li>
-        <li>Days of the week: <%= ts.enum_days %></li>
-        <% if current_studio == @studio %>
-            <li><%= link_to "Edit", edit_studio_class_timeslot_path( @studio_class, ts) %>
-        <% end %>
-        <% if user_signed_in? %>
-          <% if current_user.timeslots.include?(ts) %>
-            <strong> Class booked</strong>
-          <% else %>
-            <%= link_to "Book this class", book_class_path(ts), method: :post %>
-          <% end %>
-        <% end %>
-      </ul>
-      <br />
-    <% end %>
+
+    <%= render "class_schedule" %>
+
     <% if current_studio == @studio %>
       <%= link_to "Add Time",  new_studio_class_timeslot_path( @studio_class), class:"tiny radius button" %>
     <% end %>
