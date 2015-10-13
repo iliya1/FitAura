@@ -1,6 +1,6 @@
 <%= render layout:"shared/panel" do %>
   <h1>Add a class</h1>
-  <%= form_for @studio_class, url:studio_class_url(@studio, @studio_class) do |f| %>
+  <%= form_for @trainer_class, url: trainer_class_url(@trainer, @trainer_class) do |f| %>
     <%= f.text_field :name %>
     <%= f.text_area :description %>
     <%= f.number_field :price, placeholder: "Price in dollars", min:3, step:1%>

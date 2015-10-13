@@ -1,6 +1,7 @@
 class Studios::ClassesController < ApplicationController
   before_action :load_studio
   before_action :load_class, only: [:show, :edit, :update, :destroy]
+  before_action :check_permissions, :only => [:edit, :update, :create, :new, :destroy]
 
   def index
     @studio_classes = @studio.studio_classes
@@ -16,6 +17,7 @@ class Studios::ClassesController < ApplicationController
 
   def update
     @studio_class.update_attributes studio_class_params
+    flash[:notice] = "Class Information Updated"
     redirect_to :back
   end
 
@@ -38,6 +40,10 @@ class Studios::ClassesController < ApplicationController
 
   def load_class
     @studio_class = @studio.studio_classes.find params[:id]
+  end
+
+  def check_permissions
+    head 403 unless @studio == current_studio
   end
 
   private

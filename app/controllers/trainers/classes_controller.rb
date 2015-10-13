@@ -1,5 +1,6 @@
 class Trainers::ClassesController < ApplicationController
   before_action :load_trainer
+  before_action :check_permissions, :only => [:edit, :update, :create, :new, :destroy]
 
   def index
     @trainer_classes = @trainer.trainer_classes
@@ -13,6 +14,17 @@ class Trainers::ClassesController < ApplicationController
 
   def new
     @trainer_class = TrainerClass.new
+  end
+
+  def edit
+    @trainer_class = @trainer.trainer_classes.find params[:id]
+  end
+
+  def update
+    @trainer_class = @trainer.trainer_classes.find params[:id]
+    @trainer_class.update_attributes trainer_class_params
+    flash[:notice] = "Class Information Updated"
+    redirect_to :back
   end
 
   def create
@@ -30,6 +42,10 @@ class Trainers::ClassesController < ApplicationController
 
   def load_trainer
     @trainer = Trainer.find params[:trainer_id]
+  end
+
+  def check_permissions
+    head 403 unless @trainer == current_trainer
   end
 
   private
