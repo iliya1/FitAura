@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151007221516) do
+ActiveRecord::Schema.define(version: 20151024211432) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,17 @@ ActiveRecord::Schema.define(version: 20151007221516) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.integer  "trainer_id"
+    t.string   "title"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "zipcode"
+    t.boolean  "default"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "studio_classes", force: :cascade do |t|
@@ -102,6 +113,7 @@ ActiveRecord::Schema.define(version: 20151007221516) do
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.integer  "points"
+    t.integer  "location_id"
   end
 
   create_table "trainers", force: :cascade do |t|

@@ -20,6 +20,18 @@ class Trainers::ClassesController < ApplicationController
     @trainer_class = @trainer.trainer_classes.find params[:id]
   end
 
+  def destroy
+    @trainer_class = @trainer.trainer_classes.find params[:id]
+    if @trainer_class.bookings.count == 0
+      @trainer_class.destroy
+      flash[:notice] = "Class deleted"
+    else
+      flash[:alert] = "Can't delete class with exising bookings"
+      render :edit
+    end
+  end
+
+
   def update
     @trainer_class = @trainer.trainer_classes.find params[:id]
     @trainer_class.update_attributes trainer_class_params
@@ -51,7 +63,7 @@ class Trainers::ClassesController < ApplicationController
   private
 
   def trainer_class_params
-    params.require(:trainer_class).permit(:name, :description, :price, :semiprivate)
+    params.require(:trainer_class).permit(:name, :description, :price, :semiprivate, :location_id)
   end
 
 end

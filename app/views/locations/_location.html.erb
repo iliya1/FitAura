@@ -1,0 +1,11 @@
+<% if @editing_location.present? && location == @editing_location %>
+  <%= render "form" %>
+<% else %>
+  <div class="location panel">
+    <%= location.title %><br />
+    <%= location.address1 %><br />
+    <%= location.address2 %><br />
+    <%= location.zipcode %><br />
+    <%= link_to "Edit", edit_trainer_location_path(current_trainer, location), class:"tiny radius button" %>
+  </div>
+<% end %>

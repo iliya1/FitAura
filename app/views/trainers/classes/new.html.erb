@@ -3,6 +3,7 @@
   <%= form_for @trainer_class do |f| %>
     <%= f.text_field :name %>
     <%= f.text_area :description %>
+    <%= f.select :location_id, @trainer.locations.collect{ |i| [ i.title, i.id ] } %>
     <%= f.check_box :semiprivate %>
     <%= f.number_field :price, placeholder: "Price in dollars", min:3, step:1%>
     <%= f.submit %>

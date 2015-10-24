@@ -1,0 +1,10 @@
+<div class="new-location panel">
+  <%= form_for [current_trainer, @location] do |f| %>
+    <%= f.text_field :title %>
+    <%= f.text_field :address1 %>
+    <%= f.text_field :address2 %>
+    <%= f.text_field :zipcode %>
+    <%= f.submit %>
+    <%= link_to "Cancel", trainer_locations_path(current_trainer), class:"small secondary button" %>
+  <% end %>
+</div>

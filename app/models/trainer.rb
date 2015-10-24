@@ -14,6 +14,7 @@ class Trainer < ActiveRecord::Base
 
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
 
+  has_many :locations
   has_many :trainer_classes
   has_many :timeslots, :through => :trainer_classes
   has_many :bookings, :through => :timeslots

@@ -1,13 +1,18 @@
-<%= render layout:"shared/panel" do %>
+<%= render layout:"shared/page" do %>
   <h1><%= @trainer.name %> </h1>
   <%= form_for @trainer, html: { multipart: true } do |f| %>
-    <%= image_tag @trainer.photo.url(:medium) %><br /><br />
+  <div class="row">
+    <div class="large-3 small-12 columns">
+      <%= image_tag @trainer.photo.url(:medium) %><br />
+      <%= f.file_field :photo %>
+    </div>
+    <div class="large-9 small-12 columns">
+      <%= f.text_area :about, rows: 20 %>
+      <%= f.text_field :phone %>
+    </div>
+  </div>
 
-    <%= f.file_field :photo %>
-    <%= f.text_area :about %>
-    <%= f.text_field :phone %>
 
-    <br />
     <%= f.submit %>
 
   <% end %>

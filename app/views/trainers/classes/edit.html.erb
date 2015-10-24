@@ -1,10 +1,14 @@
 <%= render layout:"shared/panel" do %>
-  <h1>Add a class</h1>
+  <h1>Edit class</h1>
   <%= form_for @trainer_class, url: trainer_class_url(@trainer, @trainer_class) do |f| %>
     <%= f.text_field :name %>
     <%= f.text_area :description %>
+    <%= f.select :location_id, @trainer.locations.collect{ |i| [ i.title, i.id ] } %>
+    <%= f.check_box :semiprivate %>
     <%= f.number_field :price, placeholder: "Price in dollars", min:3, step:1%>
     <%= f.submit %>
+    <%= link_to "Cancel", trainer_classes_url(@trainer), class:"small radius button secondary" %>
+    <%= link_to "Delete", trainer_class_url(@trainer, @trainer_class), method: :delete, data:{ confirm: "Delete class?"}, class:"small radius button alert right" %>
   <% end %>
 
 <% end %>

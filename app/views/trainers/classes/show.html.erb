@@ -2,6 +2,9 @@
   <div>
     <h1> <%= @trainer_class.name %></h1>
     <p> <%= @trainer_class.description %></p>
+    <p>
+      Hosted at: <%= @trainer_class.location.title %>
+    </p>
     Cost: <%= @trainer_class.points %> points
   </div>
 

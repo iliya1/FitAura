@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   end
 
   resources :trainers do
+    resources :locations
     resources :classes, controller: "trainers/classes"
     get "clients", to: "trainers#clients", as: :clients
   end

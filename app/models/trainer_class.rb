@@ -1,6 +1,8 @@
 class TrainerClass < ActiveRecord::Base
   belongs_to :trainer
+  belongs_to :location
   has_many :timeslots, :as => :scheduleable
+  has_many :bookings, through: :timeslots
   attr_writer :price
 
   def price

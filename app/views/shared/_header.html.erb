@@ -27,6 +27,7 @@
       </ul>
     <% elsif trainer_signed_in? %>
       <ul class="right">
+        <li> <%= link_to "Training Locations", trainer_locations_path(current_trainer) %></li>
         <li> <%= link_to "Trainer Profile", trainer_path(current_trainer) %></li>
         <li> <%= link_to('Logout', destroy_trainer_session_path, :method => :delete) %>        </li>
       </ul>
