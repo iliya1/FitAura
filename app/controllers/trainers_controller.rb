@@ -1,6 +1,6 @@
 class TrainersController < ApplicationController
-  before_action :authenticate_trainer!, :only => [:edit, :update, :dashboard]
-  before_action :load_current_trainer, :only => [:edit, :update, :dashboard]
+  before_action :authenticate_trainer!, :only => [:edit, :update, :dashboard, :clients]
+  before_action :load_current_trainer, :only => [:edit, :update, :dashboard, :clients]
 
   def index
   end
@@ -14,6 +14,10 @@ class TrainersController < ApplicationController
   end
 
   def edit
+  end
+
+  def clients
+    @bookings = @trainer.bookings
   end
 
   def update
