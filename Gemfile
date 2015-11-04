@@ -42,6 +42,7 @@ group :development, :test do
   gem "quiet_assets"
 
   gem 'rspec-rails'
+  gem "mailcatcher"
 end
 
 group :production do
