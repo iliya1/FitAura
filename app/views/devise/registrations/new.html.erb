@@ -8,7 +8,10 @@
     <% if @target == "Studios" %>
       <%= f.text_field :studio_name, autofocus: true %>
     <% end %>
-    <%= f.text_field :zipcode, placeholder:"To help us find trainers near you" %>
+    <% if @target == "Trainers" %>
+      <%= f.radio_button(:sex, "male") %>
+      <%= f.radio_button(:sex, "female") %>
+    <% end %>
 
     <%= f.password_field :password, autocomplete: "off", placeholder: ( @minimum_password_length ? "#{@minimum_password_length} characters minimum" : "" ) %>
 

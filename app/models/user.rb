@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates :name, :zipcode, presence: true
+  validates :name, presence: true
 
   has_many :bookings
   has_many :timeslots, :through => :bookings

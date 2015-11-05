@@ -4,7 +4,7 @@ class Trainer < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates :name, :zipcode, presence: true
+  validates :name, presence: true
 
   has_attached_file :photo,
     :storage => :s3,

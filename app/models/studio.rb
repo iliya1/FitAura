@@ -7,7 +7,7 @@ class Studio < ActiveRecord::Base
   geocoded_by :address
   after_validation :geocode, if: ->(obj){ obj.address1.present? and obj.address1_changed? }
 
-  validates :name, :studio_name, :zipcode, presence: true
+  validates :name, :studio_name, presence: true
 
   has_attached_file :logo,
     :storage => :s3,

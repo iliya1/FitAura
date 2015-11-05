@@ -7,13 +7,15 @@
       <%= f.file_field :photo %>
     </div>
     <div class="large-9 small-12 columns">
+      <%= f.text_field :name %>
+      <%= f.text_field :email %>
       <%= f.text_area :about, rows: 20 %>
       <%= f.text_field :phone %>
     </div>
   </div>
 
 
-    <%= f.submit %>
+    <%= f.submit "Save Profile" %>
 
   <% end %>
     <%= link_to "Back", trainer_path(current_trainer) %>

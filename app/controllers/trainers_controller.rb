@@ -22,6 +22,7 @@ class TrainersController < ApplicationController
 
   def update
     if @trainer.update_attributes trainer_attributes
+      flash[:notice] = "Profile updated"
       redirect_to edit_trainer_path(current_trainer)
     else
       render :edit
@@ -37,7 +38,7 @@ class TrainersController < ApplicationController
   private
 
   def trainer_attributes
-    params.require(:trainer).permit( :photo , :about, :phone )
+    params.require(:trainer).permit( :photo , :name, :email, :about, :phone )
   end
 
 end
