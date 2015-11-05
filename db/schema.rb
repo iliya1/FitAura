@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151105024412) do
+ActiveRecord::Schema.define(version: 20151105030032) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,6 +92,14 @@ ActiveRecord::Schema.define(version: 20151105024412) do
   add_index "studios", ["email"], name: "index_studios_on_email", unique: true, using: :btree
   add_index "studios", ["reset_password_token"], name: "index_studios_on_reset_password_token", unique: true, using: :btree
 
+  create_table "testimonials", force: :cascade do |t|
+    t.integer  "trainer_id"
+    t.string   "name"
+    t.text     "testimonial"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "timeslots", force: :cascade do |t|
     t.text     "days",              default: [],              array: true
     t.time     "start_time"
@@ -153,6 +161,7 @@ ActiveRecord::Schema.define(version: 20151105024412) do
     t.datetime "confirmation_sent_at"
     t.string   "sex"
     t.string   "specialty"
+    t.string   "years_of_experience"
   end
 
   add_index "trainers", ["confirmation_token"], name: "index_trainers_on_confirmation_token", unique: true, using: :btree

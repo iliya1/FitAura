@@ -11,12 +11,12 @@
       <%= f.text_field :email %>
       <%= f.text_area :about, rows: 20 %>
       <%= f.text_field :phone %>
+      <%= f.text_field :years_of_experience %>
       <legend>Training Formats</legend>
       <%= f.collection_check_boxes( :training_format_ids, TrainingFormat.all, :id, :name)%> 
       <%= f.text_field :specialty %>
     </div>
   </div>
-
 
     <%= f.submit "Save Profile" %>
 

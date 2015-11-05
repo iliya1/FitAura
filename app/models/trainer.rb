@@ -21,4 +21,6 @@ class Trainer < ActiveRecord::Base
 
   has_many :trainer_formats
   has_many :training_formats, :through => :trainer_formats
+
+  has_many :testimonials
 end
