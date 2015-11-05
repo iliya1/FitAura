@@ -16,14 +16,25 @@
           <li><%= tf.name %></li>
         <% end %>
         <% unless @trainer.specialty.empty? %>
-          Speciality: <%= @trainer.specialty %><br />
+          <li>Speciality: <%= @trainer.specialty %></li>
         <% end %>
-        Years of experience: <%= @trainer.years_of_experience %><br />
-        Certificates: 
+      </ul>
+      Years of experience: <%= @trainer.years_of_experience %><br />
+      <h5>Certificates </h5>
+      <ul class="no-bullet">
+        <% @trainer.certificates.each do |c| %>
+          <%= c.title %>
+        <% end %>
+        <% if @trainer == current_trainer %>
+          &nbsp;&nbsp;
+          <li> <%= link_to "Add Certificate", new_trainer_certificate_path(current_trainer) %></li>
+        <% end %>
       </ul>
     </div>
   </div>
 
-  <h2>Testimonials</h2>
+  <% if @trainer.testimonials.any? %>
+    <h2>Testimonials</h2>
+  <% end %>
 
 <% end %>
