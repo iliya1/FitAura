@@ -11,6 +11,9 @@
       <%= f.text_field :email %>
       <%= f.text_area :about, rows: 20 %>
       <%= f.text_field :phone %>
+      <legend>Training Formats</legend>
+      <%= f.collection_check_boxes( :training_format_ids, TrainingFormat.all, :id, :name)%> 
+      <%= f.text_field :specialty %>
     </div>
   </div>
 

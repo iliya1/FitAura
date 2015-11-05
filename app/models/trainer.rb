@@ -18,4 +18,7 @@ class Trainer < ActiveRecord::Base
   has_many :trainer_classes
   has_many :timeslots, :through => :trainer_classes
   has_many :bookings, :through => :timeslots
+
+  has_many :trainer_formats
+  has_many :training_formats, :through => :trainer_formats
 end
