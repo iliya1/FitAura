@@ -49,6 +49,7 @@ group :production do
   gem "rails_12factor"
 end
 
+gem 'raygun4ruby'
 gem "american_date"
 
 gem "geocoder"
