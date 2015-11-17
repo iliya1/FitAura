@@ -45,9 +45,8 @@ Rails.application.routes.draw do
 
  namespace :api, defaults: {format: 'json'} do
     namespace :v1 do
-      resources :users do
-        post :login
-      end
+      resources :users
+      resources :trainers
     end
   end
 
