@@ -7,6 +7,7 @@ module Api
       def create
         @user = User.new registration_params
         if @user.valid?
+          @user.authentication_token = nil
           @user.save!
           render json: {id: @user.id, email: @user.email, user_token: @user.authentication_token}
         else
@@ -18,6 +19,10 @@ module Api
       def show
         @user = User.find params[:id]
         head 500 and return unless @user && @user.valid_password?(params[:password])
+        @user.authentication_token = nil
+        @user.save
+        @user.reload
+
         render json: {email: @user.email, user_token: @user.authentication_token}
       end
 
