@@ -55,6 +55,7 @@ gem "american_date"
 gem "geocoder"
 
 gem "devise"
+gem 'simple_token_authentication', '~> 1.0' # see semver.org
 
 gem 'foundation-rails'
 gem 'foundation_rails_helper'
