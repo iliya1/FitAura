@@ -1,4 +1,32 @@
 # FitAura
+### Models
+
+#### Trainer
+id: integer
+email: string
+name: string
+zipcode: string
+photo: string
+phone: string
+sex: string
+speciality: string
+years_of_experience: string
+about: text
+
+*Basic trainer profile information*
+
+has_many TrainerFormats
+has_many TrainingFormats, through: TrainerFormats
+##### TrainingFormat
+name: string
+description: string
+
+*TrainingFormats are preset from the SmartSheet, TrainerFormats links many-to-many between trainers and formats*
+
+
+has_many Locations
+
+has_many TrainerClasses
 
 ### API
 
