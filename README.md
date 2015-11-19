@@ -3,8 +3,8 @@
 
 #### Trainer
 * id: integer
-* email: string
-* name: string
+* email: string, required
+* name: string, required
 * zipcode: string
 * photo: string
 * phone: string
@@ -25,7 +25,26 @@ has_many TrainingFormats, through: TrainerFormats
 
 has_many Locations  
 
+##### Location
+* title: string, required
+* address1: string, required
+* address2: string
+* zipcode: string, required
+* latitude: float, generated from the address
+* longitude: float, generated from the address
+
+*Locations are the training locations, each session must be assigned a location*
+
 has_many TrainerClasses  
+
+##### TrainerClass
+* name: string, required
+* description: text
+* semiprivate: boolean
+* points: integer, required
+* location
+
+*Trainer Classes are trainer sessions, each session has assigned cost in points, type: semiprivate or private*
 
 ### API
 
