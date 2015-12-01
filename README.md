@@ -16,11 +16,13 @@ Retrieves user auth token. Returns auth token and email, or error if user authen
 
 #### All other API commands take user_token and email for authenication, which can be either send in the header or in the request.
 
-**GET /api/v1/trainers/ with { user_email: Email, user_token: Token }**
+**GET /api/v1/trainers/ with { user_email: Email, user_token: Token, lat: latitude, lon: longitde }**
 
-Returns: { trainers: { } }
+Returns: all trainers with training locations within 5 miles of gives lat and lon
 
-Retrieves trainers. 
+**GET /api/v1/trainer_classes/ with { user_email: Email, user_token: Token, lat: latitude, lon: longitde }**
+
+Returns: all timeslots scheduled in the location within 5 miles of gives lat and lon
 
 ## Schema Information
 
