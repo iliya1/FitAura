@@ -1,52 +1,6 @@
 # FitAura
-### Models
 
-#### Trainer
-* id: integer
-* email: string, required
-* name: string, required
-* zipcode: string
-* photo: string
-* phone: string
-* sex: string
-* speciality: string
-* years_of_experience: string
-* about: text
-
-*Basic trainer profile information*
-
-has_many TrainerFormats  
-has_many TrainingFormats, through: TrainerFormats  
-##### TrainingFormat
-* name: string
-* description: string  
-
-*TrainingFormats are preset from the SmartSheet, TrainerFormats links many-to-many between trainers and formats*
-
-has_many Locations  
-
-##### Location
-* title: string, required
-* address1: string, required
-* address2: string
-* zipcode: string, required
-* latitude: float, generated from the address
-* longitude: float, generated from the address
-
-*Locations are the training locations, each session must be assigned a location*
-
-has_many TrainerClasses  
-
-##### TrainerClass
-* name: string, required
-* description: text
-* semiprivate: boolean
-* points: integer, required
-* location
-
-*Trainer Classes are trainer sessions, each session has assigned cost in points, type: semiprivate or private*
-
-### API
+## API
 
 **POST /api/v1/users/ with {user: {name: "Name", email: "Email", password: "Password", password_confirmation: "Password" } }**
 
@@ -68,7 +22,7 @@ Returns: { trainers: { } }
 
 Retrieves trainers. 
 
- Schema Information
+## Schema Information
 
  Table name: `bookings`
 
