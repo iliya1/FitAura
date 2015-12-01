@@ -1,3 +1,38 @@
+# ## Schema Information
+#
+# Table name: `studios`
+#
+# ### Columns
+#
+# Name                          | Type               | Attributes
+# ----------------------------- | ------------------ | ---------------------------
+# **`id`**                      | `integer`          | `not null, primary key`
+# **`email`**                   | `string`           | `default(""), not null`
+# **`encrypted_password`**      | `string`           | `default(""), not null`
+# **`reset_password_token`**    | `string`           |
+# **`reset_password_sent_at`**  | `datetime`         |
+# **`remember_created_at`**     | `datetime`         |
+# **`sign_in_count`**           | `integer`          | `default(0), not null`
+# **`current_sign_in_at`**      | `datetime`         |
+# **`last_sign_in_at`**         | `datetime`         |
+# **`current_sign_in_ip`**      | `string`           |
+# **`last_sign_in_ip`**         | `string`           |
+# **`created_at`**              | `datetime`         | `not null`
+# **`updated_at`**              | `datetime`         | `not null`
+# **`name`**                    | `string`           |
+# **`zipcode`**                 | `string`           |
+# **`phone`**                   | `string`           |
+# **`address1`**                | `string`           |
+# **`address2`**                | `string`           |
+# **`logo_file_name`**          | `string`           |
+# **`logo_content_type`**       | `string`           |
+# **`logo_file_size`**          | `integer`          |
+# **`logo_updated_at`**         | `datetime`         |
+# **`studio_name`**             | `string`           |
+# **`latitude`**                | `float`            |
+# **`longitude`**               | `float`            |
+#
+
 class Studio < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

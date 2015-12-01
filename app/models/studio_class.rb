@@ -1,3 +1,22 @@
+# ## Schema Information
+#
+# Table name: `studio_classes`
+#
+# ### Columns
+#
+# Name                   | Type               | Attributes
+# ---------------------- | ------------------ | ---------------------------
+# **`id`**               | `integer`          | `not null, primary key`
+# **`studio_id`**        | `integer`          |
+# **`name`**             | `string`           |
+# **`description`**      | `text`             |
+# **`points`**           | `integer`          |
+# **`created_at`**       | `datetime`         | `not null`
+# **`updated_at`**       | `datetime`         | `not null`
+# **`instructor_name`**  | `string`           |
+# **`instructor_id`**    | `integer`          |
+#
+
 class StudioClass < ActiveRecord::Base
   belongs_to :studio
   has_many :timeslots, :as => :scheduleable

@@ -1,3 +1,23 @@
+# ## Schema Information
+#
+# Table name: `instructors`
+#
+# ### Columns
+#
+# Name                      | Type               | Attributes
+# ------------------------- | ------------------ | ---------------------------
+# **`id`**                  | `integer`          | `not null, primary key`
+# **`name`**                | `string`           |
+# **`about`**               | `string`           |
+# **`studio_id`**           | `integer`          |
+# **`created_at`**          | `datetime`         | `not null`
+# **`updated_at`**          | `datetime`         | `not null`
+# **`photo_file_name`**     | `string`           |
+# **`photo_content_type`**  | `string`           |
+# **`photo_file_size`**     | `integer`          |
+# **`photo_updated_at`**    | `datetime`         |
+#
+
 class Instructor < ActiveRecord::Base
   belongs_to :studio
   has_one :studio_class

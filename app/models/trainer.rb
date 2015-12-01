@@ -1,3 +1,42 @@
+# ## Schema Information
+#
+# Table name: `trainers`
+#
+# ### Columns
+#
+# Name                          | Type               | Attributes
+# ----------------------------- | ------------------ | ---------------------------
+# **`id`**                      | `integer`          | `not null, primary key`
+# **`email`**                   | `string`           | `default(""), not null`
+# **`encrypted_password`**      | `string`           | `default(""), not null`
+# **`reset_password_token`**    | `string`           |
+# **`reset_password_sent_at`**  | `datetime`         |
+# **`remember_created_at`**     | `datetime`         |
+# **`sign_in_count`**           | `integer`          | `default(0), not null`
+# **`current_sign_in_at`**      | `datetime`         |
+# **`last_sign_in_at`**         | `datetime`         |
+# **`current_sign_in_ip`**      | `string`           |
+# **`last_sign_in_ip`**         | `string`           |
+# **`created_at`**              | `datetime`         | `not null`
+# **`updated_at`**              | `datetime`         | `not null`
+# **`name`**                    | `string`           |
+# **`zipcode`**                 | `string`           |
+# **`photo_file_name`**         | `string`           |
+# **`photo_content_type`**      | `string`           |
+# **`photo_file_size`**         | `integer`          |
+# **`photo_updated_at`**        | `datetime`         |
+# **`latitude`**                | `float`            |
+# **`longitude`**               | `float`            |
+# **`about`**                   | `text`             |
+# **`phone`**                   | `string`           |
+# **`confirmation_token`**      | `string`           |
+# **`confirmed_at`**            | `datetime`         |
+# **`confirmation_sent_at`**    | `datetime`         |
+# **`sex`**                     | `string`           |
+# **`specialty`**               | `string`           |
+# **`years_of_experience`**     | `string`           |
+#
+
 class Trainer < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

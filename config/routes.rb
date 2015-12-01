@@ -47,6 +47,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :users
       resources :trainers
+      resources :trainer_classes
     end
   end
 

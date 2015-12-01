@@ -1,11 +1,11 @@
 module Api
   module V1
-    class TrainersController < ApplicationController
+    class TrainerClassesController < ApplicationController
       acts_as_token_authentication_handler_for User, fallback: :exception
 
       def index
-        @trainers = locations.collect(&:trainer).uniq
-        render json: @trainers
+        @trainer_classes = TrainerClass.where("location_id in (?)", self.locations.collect(&:id))
+        render json: @trainer_classes
       end
       
       protected
