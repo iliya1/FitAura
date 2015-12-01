@@ -16,9 +16,11 @@
     <hr >
 
     <h3>Schedule</h3>
-    <%= render "class_schedule" %>
     <% if current_trainer == @trainer %>
+      <%= render @timeslots %>
       <%= link_to "Add Time",  new_trainer_class_timeslot_path( @trainer_class), class:"tiny radius button" %>
+      <hr>
     <% end %>
+    <%= render "class_schedule" %>
 
 <% end %>

@@ -9,6 +9,7 @@ class Trainers::ClassesController < ApplicationController
 
   def show
     @trainer_class = @trainer.trainer_classes.find params[:id]
+    @timeslots = @trainer_class.timeslots
     @schedule = ScheduleService.new(@trainer, Time.now, Time.now + 1.month, @trainer_class )
   end
 

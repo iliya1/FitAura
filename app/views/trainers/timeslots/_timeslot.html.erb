@@ -1,0 +1,2 @@
+<%= "#{timeslot.start_time.strftime("%H:%M")} #{timeslot.start_date.to_s(:long)} - #{timeslot.end_date.to_s(:long)}
+#{link_to "Edit", edit_trainer_class_timeslot_path(@trainer_class, timeslot)}".html_safe %><br />
