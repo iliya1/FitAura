@@ -2,12 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#map img { 
+#map img {
   max-width: none;
 }
-#map label { 
-  width: auto; display:inline; 
-} 
+#map label {
+  width: auto; display:inline;
+}
 
 .top-bar {
   border-bottom: 1px solid #EAEAEA;
@@ -116,22 +116,23 @@
         font-size: 13px;
         text-decoration: underline;
 
-        &:before {
-          content: "";
-          position: absolute;
-          width: 100%;
-          height: 2px;
-          bottom: -2px;
-          left: 0;
-          background-color: #4c6972;
-          visibility: hidden;
-          -webkit-transform: scaleX(0);
-          transform: scaleX(0);
-          -webkit-transition: all 0.3s ease-in-out 0s;
-          transition: all 0.3s ease-in-out 0s;
-        }
+        // &:before {
+        //   content: "";
+        //   position: absolute;
+        //   width: 100%;
+        //   height: 2px;
+        //   bottom: -2px;
+        //   left: 0;
+        //   background-color: #4c6972;
+        //   visibility: hidden;
+        //   -webkit-transform: scaleX(0);
+        //   transform: scaleX(0);
+        //   -webkit-transition: all 0.3s ease-in-out 0s;
+        //   transition: all 0.3s ease-in-out 0s;
+        // }
         &:hover {
           text-decoration: none;
+
         }
         &:hover:before {
           visibility: visible;
@@ -197,5 +198,3 @@
     color: black;
   }
 }
-
-
